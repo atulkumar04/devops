@@ -1,10 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nodeapp-deployment
+  name: nodejsapp-pod
   labels:
-     app: nodeapp
-     type: back-end
+     app: nodejsapp
+     
 spec:
   template:
      metadata:
@@ -14,12 +14,13 @@ spec:
          type: backend-end
      spec:
          containers:
-           - name: nodejsapp-erp
+           - name: nodejsapp-pod
              image: "atulkumar04/devopstask:%BUILD_NUMBER%"
   replicas: 1
   selector:
     matchLabels:
-      type: back-end
+      app: nodejsapp
+      
 
 ---
 apiVersion: v1
