@@ -16,6 +16,9 @@ spec:
          containers:
            - name: nodejsapp-pod
              image: "atulkumar04/devopstask:latest"
+         imagePullSecrets:
+           - name: regcred
+
   replicas: 1
   selector:
     matchLabels:
