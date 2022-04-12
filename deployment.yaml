@@ -15,7 +15,7 @@ spec:
      spec:
          containers:
            - name: nodejsapp-pod
-             image: "atulkumar04/devopstask:latest"
+             image: "atulkumar04/devopstask:%BUILD_NUMBER%"
          imagePullSecrets:
            - name: regcred
 
