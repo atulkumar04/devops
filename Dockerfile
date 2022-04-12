@@ -1,13 +1,10 @@
 FROM node:16
 
-WORKDIR /usr/src/app
+WORKDIR /app
 
-COPY package*.json /usr/src/app
+COPY ["package.json", "package-lock.json*", "/app"]
 
 
-EXPOSE 4000
-
-CMD npm run start
-
+CMD [ "node", "server.js" ]
 
 
