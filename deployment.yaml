@@ -15,7 +15,7 @@ spec:
      spec:
          containers:
            - name: nodejsapp-pod
-             image: "atulkumar04/devopstask:%BUILD_NUMBER%"
+             image: "atulkumar04/devopstask:latest"
   replicas: 1
   selector:
     matchLabels:
@@ -30,9 +30,8 @@ metadata:
 spec:
   selector:
     app: nodejsapp
-  type: LoadBalancer  
   ports:
     - protocol: TCP
       targetPort: 4000
       port: 4000
-      nodePort: 30000
+      
