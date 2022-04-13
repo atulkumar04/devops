@@ -40,9 +40,9 @@ pipeline {
         steps{
             
             withCredentials([file(credentialsId: 'KUBERNETES_CLUSTER_SECRET', variable: 'KUBERNETES_CLUSTER_SECRET')]) {
-             //bat 'powershell.exe -Command deployment.yaml | %{$_ -replace "atul0401/devopstask","atul0401/devopstask:%BUILD_NUMBER%}'
-            // bat 'kubectl apply -f deployment.yaml --kubeconfig %KUBERNETES_CLUSTER_SECRET%'
-             bat 'kubectl set image deployments/nodejsapp-pod nodejsapp-pod=atul0401/devopstask:%BUILD_NUMBER% --kubeconfig %KUBERNETES_CLUSTER_SECRET%'
+             bat  'powershell.exe Get-Content -path deployment.yaml | %{$_ -replace "atul0401/devopstask","atul0401/devopstask:%BUILD_NUMBER%"} |Set-Content -Path deployment.yaml'
+             bat 'kubectl apply -f deployment.yaml --kubeconfig %KUBERNETES_CLUSTER_SECRET%'
+             //bat 'kubectl set image deployments/nodejsapp-pod nodejsapp-pod=atul0401/devopstask:%BUILD_NUMBER% --kubeconfig %KUBERNETES_CLUSTER_SECRET%'
 }
             
             
