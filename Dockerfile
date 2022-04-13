@@ -2,8 +2,9 @@ FROM node:14
 
 WORKDIR /app
 
-COPY ["package.json", "package-lock.json*", "/app"]
+COPY . .
 
+EXPOSE 4000
 
 CMD [ "node", "server.js" ]
 
